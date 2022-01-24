@@ -1,8 +1,0 @@
-User-agent: Megalodon
-Disallow: /
-
-User-agent: Googlebot-Image
-Disallow: /images/bana/milking300_190113-3.jpg
-Disallow: /images/bana/first_190117_a-1w.jpg
-Disallow: /images/bana/samurai_190111.jpg
-Disallow: /images/bana/*.jpg
