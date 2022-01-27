@@ -4,26 +4,16 @@
 # import output
 # output_text_class = output.output_class() # ファイル名.クラス名→インスタンス生成
 
+from tokenize import Token
+from dev.ubuntu2004.work.ToolBoxApp.tool.TorConfigTool.TorConfigTool import TorConfigTool
 from tool.WebScrapingTool.WebScrapingTool import WebScrapingTool
 from tool.WgetTool.WgetTool import WgetTool
 from tool.FirewallTool.FirewallTool import FirewallTool
 from tool.IpChangeTool.IpChangeTool import IpChangeTool
 from tool.MacChangeTool.MacChangeTool import MacChangeTool
-#import tool.TorConfigTool.TorConfigTool
+from tool.TorConfigTool.TorConfigTool import TorConfigTool
 from tool.WiFiAnalayzerTool.WiFiAnalayzerTool import WiFiAnalayzerTool
 from tool.FileEditTool.FileEditTool import FileEditTool
-
-# TODO
-"""
-FileEditerToolに統一する
-・ImgTool
-  ・rename
-  ・random_rename(auto path)
-  ・random_rename(select path) <-RandomRenameTool
-  ・resize
-・RandomRenameTool
-・CharacterConversionTool
-"""
 
 class MainControl:
     menu_msg = """
@@ -128,8 +118,10 @@ class MainControl:
                 mac_chenger_tool.run()
                 #break
             elif select_num == '6':
-            	# TODO [6] : TorConfigTool
-                print('Selected tool : ')
+            	# [6] : TorConfigTool
+                tor_config_tool = TorConfigTool.TorConfigTool()
+                print('Selected tool : ' + tor_config_tool.__class__.__name__)
+                tor_config_tool.run()
                 #break
             elif select_num == '7':
                 wifi_analyzer_tool = WiFiAnalayzerTool.WiFiAnalayzerTool()
