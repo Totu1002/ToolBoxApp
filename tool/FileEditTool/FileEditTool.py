@@ -5,6 +5,7 @@ import string
 import random
 import pprint #use...?
 from PIL import Image
+import codecs
 
 '''
 ・rename
@@ -69,6 +70,18 @@ class  FileEditTool:
       if not os.path.isdir(f):
         print(f + ' => ' + target_path + '/' + re_name)
         os.rename(f,target_path + '/' + re_name)
+  
+  def conversion_character_code(self,target_files,dst_dir):
+    # cov_cmd = "find ./src -name '*.txt' -type f -print0 | xargs -0 nkf -u --overwrite -w -Lu"
+    for f in target_files:
+      dst_file_name = os.path.basename(f)
+      src_file = codecs.open(f ,'r', 'shift_jis')
+      dst_file = codecs.open(dst_dir  +'/' + dst_file_name, "w", "utf-8")
+      print(f + '->' + dst_dir + '/' + dst_file_name)
+      for row in src_file:
+        dst_file.write(row)
+        src_file.close()
+        dst_file.close()
                 
   # resize proc
   def resize(self,target_files,dst_dir):
@@ -107,6 +120,7 @@ class  FileEditTool:
         print('[2] : resize')
         print('[3] : rename random auto path')
         print('[4] : rename random select path')
+        print('[5] : conversion character code')
         print('===================')
         ans_menu = input('Enter the menu number to execute : ')
         if ans_menu == '1':
@@ -128,6 +142,11 @@ class  FileEditTool:
             print('=== start rename random select path process ===')
             self.rename_random_select(8)
             print('=== completion of the rename random select path process ===')
+            break
+        elif ans_menu == '5':
+            print('=== start conversion character code process ===')
+            self.conversion_character_code(target_files,dst_dir)
+            print('=== completion of the conversion character code process ===')
             break
         else:
             print('Enter it again')

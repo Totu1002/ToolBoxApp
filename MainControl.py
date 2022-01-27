@@ -11,10 +11,6 @@ from tool.IpChangeTool.IpChangeTool import IpChangeTool
 from tool.MacChangeTool.MacChangeTool import MacChangeTool
 #import tool.TorConfigTool.TorConfigTool
 from tool.WiFiAnalayzerTool.WiFiAnalayzerTool import WiFiAnalayzerTool
-
-from tool.ImgTool.ImgTool import ImgTool
-from tool.RandomRenameTool.RandomRenameTool import RandomRenameTool
-#import tool.CharacterConversionTool.CharacterConversionTool
 from tool.FileEditTool.FileEditTool import FileEditTool
 
 # TODO
@@ -46,7 +42,6 @@ class MainControl:
 [Convenient tools]
 [7] : WiFiAnalyzerTool
 [8] : FileEditTool
-[9] : CharacterConversionTool
 
 [*** Future release tools ***]
 [] : TorScrapingTool
@@ -86,10 +81,14 @@ class MainControl:
 [7] : WiFiAnalyzerTool
 周辺のWiFiをスキャンしリアルタイムに詳細を表示する
 
-[8] : 
-
-[9] : CharacterConversionTool
+[8] : FileEditTool
+・rename tool
+・rename_random_auto tool
+・rename_random_select tool
+・resize tool
+・file conversion tool
 対象ファイルの文字コードを変更する
+
 ==============================
 """
     def run(self):
@@ -142,10 +141,6 @@ class MainControl:
                 file_edit_tool = FileEditTool.FileEditTool()
                 print('Selected tool : ' + file_edit_tool.__class__.__name__)
                 file_edit_tool.run()
-                #break
-            elif select_num == '9':
-                # TODO [9] : CharacterConversionTool
-                print('Selected tool : ')
                 #break
             elif select_num == 'h':
                 print(self.help_msg)
