@@ -35,7 +35,7 @@ class WgetTool:
     # カレントのみ
     wget_single_cmd = "wget -r -l 1 -w 5 --random-wait -p "
 
-    def wget_tool(self):
+    def run(self):
         menu_msg = """
 === select menu ===
 wget all page : [1]
@@ -75,4 +75,4 @@ exit process : [99]
 
 if __name__ == "__main__":
     wget_tool = WgetTool()
-    wget_tool.wget_tool()
+    wget_tool.run()

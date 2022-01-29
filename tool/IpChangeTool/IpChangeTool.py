@@ -1,5 +1,7 @@
-import LinuxIpChangeTool
-import MacIpChangeTool
+from . import LinuxIpChangeTool
+from . import MacIpChangeTool
+#import LinuxIpChangeTool
+#import MacIpChangeTool
 import platform
 
 class IpChangeTool:
@@ -24,3 +26,7 @@ class IpChangeTool:
     elif platform == 'Linux':
       linux_ip_change_tool = LinuxIpChangeTool.LinuxIpChangeTool()
       linux_ip_change_tool.run()
+
+if __name__ == "__main__":
+    ip_change_tool = IpChangeTool()
+    ip_change_tool.run()

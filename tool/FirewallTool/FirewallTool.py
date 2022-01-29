@@ -128,5 +128,6 @@ class FirewallTool:
         elif platform == 'Linux':
             self.linux_conf()
 
-firewall_tool = FirewallTool()
-firewall_tool.run()
+if __name__ == "__main__":
+    firewall_tool = FirewallTool()
+    firewall_tool.run()

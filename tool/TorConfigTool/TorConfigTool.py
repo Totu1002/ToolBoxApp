@@ -1,6 +1,6 @@
 import subprocess
 import platform
-from ShowConfigDetail import ShowConfigDetail
+from . import ShowConfigDetail
 
 class TorConfigTool:
 	# TODO

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # url
+from email.quoprimime import header_decode
 import requests 
 # html perse
 from bs4 import BeautifulSoup 
@@ -13,17 +14,19 @@ import time
 from urllib.parse import urljoin
 
 class WebScrapingTool:
-	#Test URL
-	#target_url = "https://news.yahoo.co.jp/'"
-	target_url = input("INPUT URL : ")
-	
-	#UserAgent:FireFox
-	header = {"User-Agent" : "Mozilla/5.0"}
+	def set_env():
+		#Test URL
+		#target_url = "https://news.yahoo.co.jp/'"
+		target_url = input("INPUT URL : ")
+		
+		#UserAgent:FireFox
+		header = {"User-Agent" : "Mozilla/5.0"}
 
-	#img list
-	#images = []
+		#img list
+		#images = []
+		return target_url,header
 	
-	def download_images(self):
+	def download_images(self,target_url,header):
 		images = []
 		#URL perser
 		soup = BeautifulSoup(requests.get(self.target_url,headers=self.header).content,'lxml')
@@ -61,5 +64,6 @@ class WebScrapingTool:
 
 if __name__ == "__main__":
 	web_scraping_tool = WebScrapingTool()
-	images = web_scraping_tool.download_images()
+	env_data = web_scraping_tool.set_env()
+	images = web_scraping_tool.download_images(env_data[0],env_data[1])
 	web_scraping_tool.save_images(images)

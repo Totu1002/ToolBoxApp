@@ -1,7 +1,7 @@
 import subprocess
 import platform
 import os
-from TorConfigTool import TorConfigTool
+from . import TorConfigTool
 
 class ShowConfigDetail:
   def set_env(self,src_file):
