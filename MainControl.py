@@ -4,8 +4,6 @@
 # import output
 # output_text_class = output.output_class() # ファイル名.クラス名→インスタンス生成
 
-
-
 import tool
 
 class MainControl:
@@ -81,6 +79,7 @@ srcディレクトリに存在するァイルの名称をランダムなもの�
     def run(self):
         print(self.menu_msg)
         while True:
+            print('--- MainControl Menu ---')
             print("[m] : Redisplay menu")
             select_num = input('Please enter the menu number : ')
             # [q]を選択して終了するまでループさせる(breakを入れない)
@@ -90,48 +89,56 @@ srcディレクトリに存在するァイルの名称をランダムなもの�
                 web_scraping_tool = tool.WebScrapingTool()
                 print('Selected tool : ' + web_scraping_tool.__class__.__name__)
                 web_scraping_tool.run()
+                print('Processing completed : ' + web_scraping_tool.__class__.__name__)
                 continue
             elif select_num == '2':
                 # [2] : WgetTool
                 wget_tool = tool.WgetTool()
                 print('Selected tool : ' + wget_tool.__class__.__name__)
                 wget_tool.run()
+                print('Processing completed : ' + wget_tool.__class__.__name__)
                 continue
             elif select_num == '3':
                 # [3] : FireWallTool
                 firewall_tool = tool.FirewallTool()
                 print('Selected tool : ' + firewall_tool.__class__.__name__)
                 firewall_tool.run()
+                print('Processing completed : ' + firewall_tool.__class__.__name__)
                 continue
             elif select_num == '4':
                 # [4] : IpChengerTool
                 ip_chenger_tool = tool.IpChangeTool()
                 print('Selected tool : ' + ip_chenger_tool.__class__.__name__)
                 ip_chenger_tool.run()
+                print('Processing completed : ' + ip_chenger_tool.__class__.__name__)
                 continue
             elif select_num == '5':
                 # [5] : MacChengerTool
                 mac_chenger_tool = tool.MacChangeTool()
                 print('Selected tool : ' + mac_chenger_tool.__class__.__name__)
                 mac_chenger_tool.run()
+                print('Processing completed : ' + mac_chenger_tool.__class__.__name__)
                 continue
             elif select_num == '6':
             	# [6] : TorConfigTool
                 tor_config_tool = tool.TorConfigTool()
                 print('Selected tool : ' + tor_config_tool.__class__.__name__)
                 tor_config_tool.run()
+                print('Processing completed : ' + tor_config_tool.__class__.__name__)
                 continue
             elif select_num == '7':
                 # [7] : WiFiAnalyzerTool
                 wifi_analyzer_tool = tool.WiFiAnalayzerTool()
                 print('Selected tool : ' + wifi_analyzer_tool.__class__.__name__)
                 wifi_analyzer_tool.run()
+                print('Processing completed : ' + wifi_analyzer_tool.__class__.__name__)
                 continue
             elif select_num == '8':
                 # [8] : FileEditTool
                 file_edit_tool = tool.FileEditTool()
                 print('Selected tool : ' + file_edit_tool.__class__.__name__)
                 file_edit_tool.run()
+                print('Processing completed : ' + file_edit_tool.__class__.__name__)
                 continue
             elif select_num == 'h':
                 print(self.help_msg)

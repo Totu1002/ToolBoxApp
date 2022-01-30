@@ -73,16 +73,15 @@ class MacChangeTool:
 	def run(self):
 		# cheange or returnかは選択式で処理を分岐する
 		# メニュー選択しを表示
-		menu_msg = """[Mac Changer Controller Menu]
+		menu_msg = """
+[Mac Changer Controller Menu]
 
-		[1] : Change mac address
-		[2] : Return Mac address
+[1] : Change mac address
+[2] : Return Mac address
 
-		[99]: Exit the process
-		"""
+[q] : quit
+"""
 		print(menu_msg)
-
-		mac_changer_tool = MacChangeTool()
 
 		while True:
 			answer = input('Please select a menu : ')
@@ -105,8 +104,8 @@ class MacChangeTool:
 				self.return_mac(target)
 				#self.up_interface(target)
 				break
-			elif answer == "99":
-				print("The selected menu is : 99")
+			elif answer == "q":
+				print("The selected menu is : q")
 				print("Exited the process.")
 				break
 

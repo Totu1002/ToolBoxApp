@@ -24,22 +24,22 @@ class WiFiAnalayzerTool:
   def MacWiFiScan(self):
     menu_text = """/
 === set_sifi_mac menu ===
-[1]wifi on cmd
+[1] : wifi on cmd
    PC Wi-Fi ON.
 
-[2]wifi on cmd
+[2] : wifi on cmd
    PC Wi-Fi OFF.
    
-[3]wifi scan all
+[3] : wifi scan all
    Scan all access point.
 
-[4]wifi scan your ssid
+[4] : wifi scan your ssid
    Scan your access point SSID.
 
-[5]auto conect SSID
+[5] : auto conect SSID
    Auto conect your SSID.
 
-[q]quit
+[q] : quit
 =========================
 """
     # リアルタイム表示用watchコマンド
@@ -103,13 +103,13 @@ class WiFiAnalayzerTool:
     wifi_scan_wep_cmd = 'sh WiFiAnalayzerWEP.sh'
     menu_text = """/
 === set_sifi_mac menu ===
-[1]wifi scan all
+[1] : wifi scan all
    Scan all access point.
 
-[2]wifi scan WEP
+[2] : wifi scan WEP
    Scan for WEP access point.
 
-[q]quit
+[q] : quit
 =========================
 """
     print(menu_text)
@@ -122,7 +122,7 @@ class WiFiAnalayzerTool:
       elif ans == '2':
         subprocess.run(wifi_scan_wep_cmd, shell=True)
         break
-      elif ans == '99':
+      elif ans == 'q':
         break
       else: 
         print('Enter it again')

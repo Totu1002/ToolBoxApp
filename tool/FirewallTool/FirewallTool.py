@@ -4,7 +4,7 @@ import platform
 class FirewallTool:
     def get_os(self):
         pf = platform.system()
-        print(pf)
+        #print(pf)
         if pf == 'Windows':
             print('on Windows')
         elif pf == 'Darwin':
@@ -44,7 +44,7 @@ class FirewallTool:
 [7] : Delete rule
 [8] : Reset rule
 
-[99]: Exit the process
+[q] : quit
 '''
         print(menu_msg)
         subprocess.run(show_cmd,shell=True)
@@ -92,7 +92,7 @@ class FirewallTool:
                 subprocess.run(show_cmd,shell=True)
                 subprocess.run(show_rule_cmd,shell=True)
                 break
-            elif answer == '99':
+            elif answer == 'q':
                 break
 
     def mac_conf(self):

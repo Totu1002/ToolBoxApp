@@ -109,10 +109,10 @@ class  FileEditTool:
     dst_dir = env_data[1]
     target_files = env_data[2]
     # DEBUG
-    print('env_data : ' + str(env_data))
-    print('stc_dir : ' + src_dir)
-    print('dst_dir : ' + dst_dir)
-    print('target_files : ' + str(target_files))
+    #print('env_data : ' + str(env_data))
+    #print('stc_dir : ' + src_dir)
+    #print('dst_dir : ' + dst_dir)
+    #print('target_files : ' + str(target_files))
     # select process menu
     while True:
         print('=== select menu ===')
@@ -121,6 +121,7 @@ class  FileEditTool:
         print('[3] : rename random auto path')
         print('[4] : rename random select path')
         print('[5] : conversion character code')
+        print('[q] : quit')
         print('===================')
         ans_menu = input('Enter the menu number to execute : ')
         if ans_menu == '1':
@@ -147,6 +148,9 @@ class  FileEditTool:
             print('=== start conversion character code process ===')
             self.conversion_character_code(target_files,dst_dir)
             print('=== completion of the conversion character code process ===')
+            break
+        elif ans_menu == 'q':
+            print('Exited from processing.')
             break
         else:
             print('Enter it again')

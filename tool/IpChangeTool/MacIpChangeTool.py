@@ -19,16 +19,14 @@ class MacIpChangeTool:
     
 	def set_dhcp(self,network_service):
 		try:
-			print(self.dhcp_cmd + ' ' + network_service)
 			subprocess.run(self.dhcp_cmd + ' ' + network_service, shell=True)
 		except:
 			print('error : set_dhcp')
     
 	#nw_sv,ip,subnet,router
-	def set_ip(self,network_service,ipaddress,subnetmask,router_ip):
+	def set_ip(self,network_service,ip_address,subnetmask,router_ip):
 		try:
-			print(self.static_ip_cmd + ' ' + network_service + ' ' + ipaddress + ' ' + subnetmask + ' ' + router_ip)
-			subprocess.run(self.static_ip_cmd + ' ' + network_service + ' ' + ipaddress + ' ' + subnetmask + ' ' + router_ip,shell=True)
+			subprocess.run(self.static_ip_cmd + ' ' + network_service + ' ' + ip_address + ' ' + subnetmask + ' ' + router_ip,shell=True)
 		except:
 			print('error : set_ip')
 
@@ -62,21 +60,45 @@ class MacIpChangeTool:
 			  
 			if answer == '1':
 				print("The selected menu is : 1")
-				self.show_int()
-				network_service = input('Please input network_service : ')
-				ip_address = input('Please input ip address : ')
-				subnetmask = input('Please input subnetmask : ')
-				router_ip = input('Please input router ip address : ')
-				self.set_ip(network_service,ip_address,subnetmask,router_ip)
+				while True:
+					self.show_int()
+					network_service = input('Please input network_service : ')
+					ip_address = input('Please input ip address : ')
+					subnetmask = input('Please input subnetmask : ')
+					router_ip = input('Please input router ip address : ')
+					print(self.static_ip_cmd + ' ' + network_service + ' ' + ip_address + ' ' + subnetmask + ' ' + router_ip)
+					print('Do you want to run ? : [y] or [n]')
+					print('Cancel processing : [q]')
+					exe_answer = input(' : ')
+					if exe_answer == 'y':
+						self.set_ip(network_service,ip_address,subnetmask,router_ip)
+						break
+					elif exe_answer == 'q':
+						print('Cancel processing')
+						break
+					else:
+						continue
 				break
 			elif answer == '2':
 				print("The selected menu is : 2")
-				self.show_int()
-				network_service = input('Please input network_service : ')
-				interface = input('Please input interface : ')
-				self.set_dhcp(network_service)
-				self.interface_down(interface)
-				self.interface_up(interface)
+				while True:
+					self.show_int()
+					network_service = input('Please input network_service : ')
+					interface = input('Please input interface : ')
+					print(self.dhcp_cmd + ' ' + network_service)
+					print('Do you want to run ? : [y] or [n]')
+					print('Cancel processing : [q]')
+					exe_answer = input(' : ')
+					if exe_answer == 'y':
+						self.set_dhcp(network_service)
+						self.interface_down(interface)
+						self.interface_up(interface)
+						break
+					elif exe_answer == 'q':
+						print('Cancel processing')
+						break
+					else:
+						continue
 				break
 			elif  answer == '99':
 				print("The selected menu is : 99")

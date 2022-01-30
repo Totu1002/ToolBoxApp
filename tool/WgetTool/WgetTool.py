@@ -38,10 +38,10 @@ class WgetTool:
     def run(self):
         menu_msg = """
 === select menu ===
-wget all page : [1]
-wget single page : [2]
+[1] : wget all page : 
+[2] : wget single page : 
 
-exit process : [99]  
+[q] : exit process
 ===================
 """
         print(menu_msg)
@@ -66,7 +66,7 @@ exit process : [99]
                 except:
                     print("ERROR : Processing did not complete normally")
                 break
-            elif menu_num == '99':
+            elif menu_num == 'q':
                 print('exit process')
                 break
             else:

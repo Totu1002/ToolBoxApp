@@ -9,7 +9,9 @@ class TorConfigTool:
   
   def set_env(self,src_file):
     # Source path set valiable
-    src_path = "config/"
+    #src_path = "./config/"
+    # mod用path
+    src_path = "./tool/TorConfigTool/config/"
     dst_file = "torrc"
     
     # Destinationpath set valiable
@@ -19,22 +21,23 @@ class TorConfigTool:
     if pf == 'Windows':
         print('on Windows')
         # TODO path要確認
-        #windows用path
+        # windows用path
         #dst_path = "..¥Browser¥TorBrowser¥Data¥Tor¥"
     elif pf == 'Darwin':
         print('on Mac')
-        #Mac用path
-        dst_path = "/Users/totu/Library/Application Support/TorBrowser-Data/Tor/"
+        # Mac用path
+        dst_path = '/Users/totu/Library/Application\ Support/TorBrowser-Data/Tor/'
         #dst_path =  "/Applications/Tor Browser.app/Contents/Resources/TorBrowser/Tor/torrc-defaults"
+        # ファイル検索コマンド
+        #mdfind -onlyin ~/ -name torrc
     elif pf == 'Linux':
         print('on Linux')
-        #Linux用path
+        # Linux用path
         #dst_path = "/etc/tor/"
         dst_path = "/home/pr0wler/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/TorBrowser/Data/Tor/"
     
     input_config = src_path + src_file
     output_config = dst_path + dst_file
-    print(output_config)
     return input_config,output_config
 
   def setting_torrc(self,input_config,output_config):
@@ -101,11 +104,13 @@ Check the current settings .
 
 [h]:View config details.
 
-[q]:Cancel selection
+[q] : quit
 ======================================="""
     print(menu_msg)
 
     while True:
+      print('--- TorConfigTool Menu ---')
+      print("[m] : Redisplay menu")
       num = input('Please enter the menu number : ')
       print("Selected menu number : " + num)
       if num == "0":
@@ -118,71 +123,107 @@ Check the current settings .
         break
       elif num == "1":
         src_file = "torrc_level1.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "2":
         src_file = "torrc_level2.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "3":
         src_file = "torrc_level3.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "4":
         src_file = "torrc_level4.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "5":
         src_file = "torrc_5eyes.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "6":
         src_file = "torrc_9eyes.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "7":
         src_file = "torrc_14eyes.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "8":
         src_file = "torrc_41eyes.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "9":
         src_file = "torrc_levelMax.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "10":
         src_file = "torrc_levelCustom.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "d":
         src_file = "torrc_.txt"
-        self.setting_torrc(src_file)
-        self.chenge_owner()
+        env_data = self.set_env(src_file)
+        input_config = env_data[0]
+        output_config = env_data[1]
+        self.setting_torrc(input_config,output_config)
+        self.chenge_owner(output_config)
         break
       elif num == "s":
-        self.show_conf_now()
-        break
+        src_file = "torrc_.txt"
+        env_data = self.set_env(src_file)
+        output_config = env_data[1]
+        self.show_conf_now(output_config)
+        continue
       elif num == "h":
         show_config_detail = ShowConfigDetail.ShowConfigDetail()
         show_config_detail.run()
-        break
+        continue
+      elif num == "m":
+        print(menu_msg)
+        continue
       elif num == "q": 
         print("--- Quit ---")
         break
       else:
         print("--- INPUT ERROR ---")
-
-    print("--- Running configuration ---")
-    self.show_conf_now()
