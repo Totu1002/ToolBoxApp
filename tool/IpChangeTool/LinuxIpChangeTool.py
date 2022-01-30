@@ -52,7 +52,7 @@ class LinuxIpChangeTool:
 [1] : set static ip address
 [2] : set dhcp
 
-[99]: Exit the process
+[q]: Exit the process
 """
 		print(menu_msg)
 		
@@ -77,7 +77,7 @@ class LinuxIpChangeTool:
 				self.interface_down(interface)
 				self.interface_up(interface)
 				break
-			elif  answer == '99':
+			elif  answer == 'q':
 				print("The selected menu is : 99")
 				print("Exited the process.")
 				break
